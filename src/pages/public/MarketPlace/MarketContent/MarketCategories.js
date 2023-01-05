@@ -13,8 +13,9 @@ function MarketCaregories() {
         return (
             <Categories>
                 <CategoriesTitle>
-                    loading...
+                    categories
                 </CategoriesTitle>
+                <CategoriesItem category={'loading...'} total={''} />
             </Categories>
         )
     }
@@ -25,10 +26,10 @@ function MarketCaregories() {
                 categories
             </CategoriesTitle>
 
-            <CategoriesItem category={'all'} total={'000'} action={() => setCategory('')} focus={category === '' ? true : false} />
+            <CategoriesItem category={'all'} total={100} action={() => setCategory('')} focus={category === '' ? true : false} />
 
             {categoriesList.map((act) => (
-                <CategoriesItem key={act} category={act} total={'000'} action={() => setCategory(act)} focus={act === category ? true : false} />
+                <CategoriesItem key={act} category={act} total={5} action={() => setCategory(act)} focus={act === category ? true : false} />
             ))}
         </Categories>
     );

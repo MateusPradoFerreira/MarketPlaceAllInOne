@@ -7,7 +7,7 @@ function CategoriesItem({ category, total, focus, action }) {
 
     return (
         <FlexContainer css={{ justifyContent: 'space-between', marginTop: 5 }} onClick={() => action()}>
-            <CategoriesCategoryCSS css={{ color: colorFocus, fontWeight: fontWeight }}> {category} </CategoriesCategoryCSS>
+            <CategoriesCategoryCSS css={{ color: colorFocus, fontWeight: fontWeight }}> {category.replace('-', ' ')} </CategoriesCategoryCSS>
             <CategoriesTotalCSS css={{ color: colorFocus }}> {total} </CategoriesTotalCSS>
         </FlexContainer>
     );

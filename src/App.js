@@ -9,6 +9,7 @@ import Cart from "./pages/private/Cart";
 import Profile from "./pages/private/Profile";
 import Header from "./components/layouts/Header";
 import { AuthContext, AuthContextProvider } from "./contexts/auth";
+import Footer from "./components/layouts/Footer";
 import { useContext } from "react";
 
 function App() {
@@ -28,17 +29,26 @@ function App() {
     return children;
   }
 
+  const DefaultLayout = ({ children }) => {
+    return (
+      <>
+        <Header />
+        {children}
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <AuthContextProvider>
-
       <Routes>
-        <Route path="/" element={<> <Header /> <Home /> </>} />
+        <Route path="/" element={<DefaultLayout> <Home /> </DefaultLayout>} />
         <Route path="/login" element={<Login />} />
-        <Route path="/about" element={<> <Header /> <About /> </>} />
-        <Route path="/marketplace" element={<> <Header /> <MarketPlace />  </>} />
-        <Route path="/marketplace/*" element={<> <Header /> <Product />  </>} />
-        <Route path="/cart" element={<Private> <> <Header /> <Cart /> </> </Private>} />
-        <Route path="/profile" element={<Private> <> <Header /> <Profile /> </> </Private>} />
+        <Route path="/about" element={<DefaultLayout> <About /> </DefaultLayout>} />
+        <Route path="/marketplace" element={<DefaultLayout> <MarketPlace /> </DefaultLayout>} />
+        <Route path="/marketplace/*" element={<DefaultLayout> <Product /> </DefaultLayout>} />
+        <Route path="/cart" element={<Private> <DefaultLayout> <Cart /> </DefaultLayout> </Private>} />
+        <Route path="/profile" element={<Private> <DefaultLayout> <Profile /> </DefaultLayout> </Private>} />
       </Routes>
     </AuthContextProvider>
   );

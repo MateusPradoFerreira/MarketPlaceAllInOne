@@ -4,7 +4,7 @@ export const CategoriesCategoryCSS = styled('p',{
     fontFamily: '$Roboto',
     color: '$Grey500',
     fontWeight: 400,
-    fontSize: 12,
+    fontSize: 14,
     textTransform: 'capitalize',
     cursor: 'pointer',
 })
@@ -13,6 +13,6 @@ export const CategoriesTotalCSS = styled('p',{
     fontFamily: '$Poppins',
     color: '$Grey500',
     fontWeight: 700,
-    fontSize: 12,
+    fontSize: 14,
     textTransform: 'uppercase',
 })
