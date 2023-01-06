@@ -22,6 +22,7 @@ export const { css, styled } = createStitches({
             DarkBlue: '#1C1B4D',
             Magenta: '#B80E4B',
             Red400: '#F00731',
+            Red300: '#F4133C',
             LightCyan: '#1791B1',
             Grey50: '#FAFAFA',
             Grey100: '#F5F5F5',

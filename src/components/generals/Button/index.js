@@ -1,10 +1,10 @@
-import { styled } from "../sititchesConfig";
+import { styled } from "../../sititchesConfig";
 
 export const Button = styled('button', {
     cursor: 'pointer',
 
     variants: {
-        type: {
+        style: {
             icon: {
                 width: 24,
                 height: 24,
@@ -121,7 +121,7 @@ export const Button = styled('button', {
     },
 
     defaultVariants: {
-        type: 'text',
+        style: 'text',
         color: 'grey',
     },
 })

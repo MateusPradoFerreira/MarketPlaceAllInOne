@@ -19,7 +19,7 @@ function Authenticated() {
     if (!authenticated) {
         return (
             <FlexContainer>
-                <Button type={'icon'} onClick={() => navigate('/cart')} color={'none'} >
+                <Button style={'icon'} onClick={() => navigate('/cart')} color={'none'} >
                     <img src={SVGShoppingCart} alt='icon' />
                 </Button>
                 <Button css={{ marginLeft: 35 }} onClick={() => navigate('/login')} >login</Button>
@@ -29,17 +29,17 @@ function Authenticated() {
 
     return (
         <FlexContainer>
-            <Button type={'icon'} onClick={() => navigate('/cart')} color={'none'} >
+            <Button style={'icon'} onClick={() => navigate('/cart')} color={'none'} >
                 <img src={SVGShoppingCart} alt='icon' />
             </Button>
 
-            <Button css={{ marginLeft: 35 }} type={'icon'} onClick={onLogout} color={'none'} >
+            <Button css={{ marginLeft: 35 }} style={'icon'} onClick={onLogout} color={'none'} >
                 <img src={SVGlogout} alt='icon' />
             </Button>
 
             <UserName css={{ marginLeft: 25 }}> {user.firstName} {user.lastName.substr(0, 1)}. </UserName>
 
-            <Button css={{ width: 50, height: 50, borderRadius: 100, marginLeft: 15 }} type={'icon'} color={'darkGrey'} onClick={() => navigate('/profile')}>
+            <Button css={{ width: 50, height: 50, borderRadius: 100, marginLeft: 15 }} style={'icon'} color={'darkGrey'} onClick={() => navigate('/profile')}>
                 <img src={user.image} alt='icon' />
             </Button>
         </FlexContainer>

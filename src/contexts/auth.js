@@ -7,6 +7,7 @@ export const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
     const navigate = useNavigate();
     const [user, setUser] = useState(null);
+    const [isError, setIsError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
@@ -18,12 +19,16 @@ export const AuthContextProvider = ({ children }) => {
             API.defaults.headers.Authorization = `Bearer ${token}`;
         }
 
+        setIsError(false);
         setIsLoading(false);
     }, [])
 
     const login = async (username, password) => {
 
-        const response = await createSession(username, password);
+        const response = await createSession(username, password).catch(function(error) {
+            setIsError(true)
+        })
+
         const loggedUser = response.data;
         const token = response.data.token
 
@@ -42,10 +47,11 @@ export const AuthContextProvider = ({ children }) => {
         localStorage.removeItem('token');
         API.defaults.headers.Authorization = null;
         navigate('login');
+        setIsError(false);
     }
 
     return (
-        <AuthContext.Provider value={{ authenticated: !!user, user, login, logout, isLoading }}>
+        <AuthContext.Provider value={{ authenticated: !!user, user, login, logout, isLoading, isError, setIsError }}>
             {children}
         </AuthContext.Provider >
     )

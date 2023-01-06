@@ -23,6 +23,7 @@ export const CardNameCSS = css({
     overflow: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
+    margin: 0,
 })
 
 export const CardTagCSS = css({
