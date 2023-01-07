@@ -1,11 +1,11 @@
 import { FlexContainer } from "../../containers/FlexContainer";
 import { LogoCSS, LogoNameCSS } from "./styles";
 
-function Logo({src, alt, name}) {
+function Logo({ src, alt, name, vertical }) {
     return (
-        <FlexContainer>
-            <img src={src} alt={alt} className={LogoCSS()} />
-            <h1 className={LogoNameCSS()}>{name}</h1>
+        <FlexContainer css={vertical ? {} : { flexDirection: 'column', justifyContent: 'center' }}>
+            <LogoCSS src={src} alt={alt} />
+            <LogoNameCSS vertical={vertical}>{name}</LogoNameCSS>
         </FlexContainer>
     )
 }

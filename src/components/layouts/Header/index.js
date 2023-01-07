@@ -20,7 +20,7 @@ function Header() {
         <header className={HeaderCSS()}>
             <Container css={{ layout: 1200, height: 100, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <FlexContainer>
-                    <Logo src={logoImg} alt="logo" name="AllInOne" />
+                    <Logo src={logoImg} alt="logo" name="AllInOne" vertical />
                     <Partition left={40} right={40} />
                     <NavBar itemsList={itemsList} />
                 </FlexContainer>

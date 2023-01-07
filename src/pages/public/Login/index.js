@@ -12,9 +12,15 @@ import { LoginFormTitle } from "./LoginForm/LoginFormTitle";
 import ForgotPassword from "./LoginForm/ForgotPassword";
 import LoginFormGoogle from "./LoginForm/LoginFormGoogle";
 import { LoginFormSingUp } from "./LoginForm/LoginFormSingUp";
+import Logo from "../../../components/generals/Logo";
+import SRClogo from "../../../resources/images/log.png";
+import SVGBack from "../../../resources/svg/Back.svg";
+import { DarkText } from "../../../components/generals/DarkText";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const { login, isError, setIsError } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -27,14 +33,22 @@ function Login() {
     var errorMessage = "Username or Password incorrect!";
 
     if (username === '' || password === '') {
-        var errorMessage = "All fields must be filled in";
+        errorMessage = "All fields must be filled in";
     }
 
     return (
         <LoginMain>
             <Container css={{ display: 'flex', borderRadius: 10, overflow: 'hidden' }}>
                 <LoginComplement>
-
+                    <Container>
+                        <Logo src={SRClogo} alt={''} name={'AllInOne'} />
+                        <DarkText> Everything you are <span> looking </span> for in <span> one </span> place! </DarkText>
+                    </Container>
+                    <Container css={{ width: '100%' }}>
+                        <Button style={'icon'} color={'none'} onClick={() => navigate('/')}>
+                            <img src={SVGBack} alt="icon" />
+                        </Button>
+                    </Container>
                 </LoginComplement>
                 <LoginForm onSubmit={onLoginSubmit}>
                     <LoginFormTitle> Welcome Back! </LoginFormTitle>
@@ -50,7 +64,7 @@ function Login() {
                         <Button css={{ width: 200, margin: '0 auto' }} type="submit" color='cyan' > Sign In </Button>
                     </Container>
 
-                    <LoginFormGoogle onClick={() => { }} />
+                    <LoginFormGoogle onClick={() => {}} />
                     <LoginFormSingUp css={{ marginTop: 15 }}>
                         Doesn't have an account? <span> Sign Up </span>
                     </LoginFormSingUp>
